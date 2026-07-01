@@ -36,40 +36,45 @@
         .cta-btn { display: inline-block; background-color: var(--primary-color); color: var(--white); padding: 18px 40px; font-size: 1.2rem; font-weight: bold; text-decoration: none; border-radius: 8px; border: none; cursor: pointer; transition: background-color 0.3s; text-align: center; }
         .cta-btn:hover { background-color: #332822; }
 
+        /* 공통 애니메이션 */
         .bounce-element { opacity: 0; transform: translateY(60px) scale(0.8); transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .bounce-element.show { opacity: 1; transform: translateY(0) scale(1); }
         .delay-1 { transition-delay: 0.1s; } .delay-2 { transition-delay: 0.2s; }
         .delay-3 { transition-delay: 0.3s; } .delay-4 { transition-delay: 0.4s; }
 
-        /* 상단 네비게이션 */
+        /* 1. 상단 네비게이션 */
         header.top-nav { background-color: var(--bg-light); padding: 0 40px; height: 80px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .header-logo { font-size: 1.5rem; font-weight: 900; color: #0051A1; text-decoration: none; letter-spacing: -0.5px; }
+        .header-logo { display: flex; align-items: center; text-decoration: none; }
+        .header-logo img { height: 40px; width: auto; display: block; } /* 로고 이미지 크기 제어 */
+        
         .header-util { display: flex; align-items: center; gap: 20px; }
         .btn-franchise { background-color: #0051A1; color: #fff; padding: 10px 25px; border-radius: 50px; font-weight: bold; font-size: 1rem; border: none; cursor: pointer; transition: background 0.3s; }
         .btn-franchise:hover { background-color: #003d7a; }
 
-        /* 배너 및 섹션 공통 스타일 */
+        /* 2. 메인 슬라이드 배너 */
         .main-visual-banner { width: 100%; position: relative; background-color: #EBF4FA; }
         .main-visual-banner .swiper-slide img { width: 100%; height: auto; max-height: 550px; display: block; object-fit: cover; object-position: center; }
         .swiper-button-next, .swiper-button-prev { color: var(--white); text-shadow: 0 2px 5px rgba(0,0,0,0.3); }
         .swiper-pagination-bullet-active { background: var(--accent-color); }
 
+        /* 3. 브랜드 스토리 */
         .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
         .story-content h3 { font-size: 2rem; margin-bottom: 20px; color: var(--white); }
         .story-content p { font-size: 1.1rem; margin-bottom: 15px; color: var(--white); }
         .story-content strong { color: var(--accent-color); }
-        .story-image { width: 100%; height: 400px; border-radius: 12px; background: url('https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80') center/cover; }
+        .story-image { width: 100%; height: 400px; border-radius: 12px; object-fit: cover; display: block; } /* background 대신 img 태그용 스타일로 변경 */
 
-        /* 리뷰 섹션 */
+        /* 4. 리뷰 섹션 */
         .delivery-review-section { background-color: #F4F4F4; color: var(--text-dark); padding: 0 0 100px 0; overflow: hidden; }
         .review-top-banner { background-color: var(--brand-orange); color: #fff; text-align: center; padding: 20px; font-size: 1.3rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 80px; }
         .review-layout { max-width: 1400px; margin: 0 auto; padding: 0 30px; display: flex; gap: 50px; }
+        
         .review-left { width: 250px; flex-shrink: 0; position: relative; }
         .review-handwriting { color: var(--brand-orange); font-size: 1.8rem; font-weight: 800; font-style: italic; transform: rotate(-8deg); margin-bottom: 5px; margin-left: 10px; }
         .review-left h2 { font-size: 4rem; font-weight: 900; color: var(--bg-color); line-height: 1; letter-spacing: -2px; }
-        .review-watermark { font-size: 8rem; font-weight: 900; color: rgba(0, 81, 161, 0.05); position: absolute; top: 100px; left: -20px; line-height: 1; user-select: none; }
+        .review-watermark-img { position: absolute; top: 100px; left: -20px; width: 220px; height: auto; opacity: 0.05; pointer-events: none; user-select: none; z-index: 0; }
+
         .review-grid { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; row-gap: 60px; }
-        
         .rev-card { background: #fff; padding: 30px; box-shadow: 10px 10px 30px rgba(0,0,0,0.06); position: relative; }
         .rev-card::before { content: ''; position: absolute; top: 30px; left: 30px; right: 30px; height: 1px; background: #ddd; }
         .rev-num { position: absolute; top: -15px; left: 30px; background: var(--brand-orange); color: #fff; font-size: 1.6rem; font-weight: 900; padding: 5px 12px; line-height: 1; }
@@ -84,23 +89,35 @@
         .rev-card.alt .rev-body { flex-direction: row-reverse; }
         .rev-card.alt .rev-text { text-align: right; }
 
-        .review-bottom-btn { text-align: center; margin-top: 60px; }
-        .review-bottom-btn .cta-btn { background-color: #1A362D; border-radius: 50px; padding: 15px 50px; }
-        .review-bottom-btn .cta-btn:hover { background-color: #0f241d; }
+        .review-bottom-contact { text-align: center; margin-top: 80px; }
+        .review-bottom-contact p { font-size: 1.1rem; color: #555; margin-bottom: 10px; font-weight: 600; }
+        .review-bottom-contact .phone-number { font-size: 2rem; font-weight: 800; color: var(--bg-color); display: inline-flex; align-items: center; justify-content: center; }
+        .review-bottom-contact .phone-number span { color: var(--brand-orange); font-size: 2.8rem; margin-left: 15px; letter-spacing: -1px; }
 
-        /* 이벤트 및 혜택 */
+        /* 이벤트 배너 */
         .event-banner { padding: 40px 0 80px 0; }
         .event-box { background: linear-gradient(135deg, #FFD700, #FDB931); color: var(--text-dark); border-radius: 20px; padding: 50px 30px; text-align: center; box-shadow: 0 15px 30px rgba(0,0,0,0.3); max-width: 900px; margin: 0 auto; }
         .event-badge { background: #D32F2F; color: #fff; padding: 6px 18px; border-radius: 20px; font-weight: bold; font-size: 1rem; display: inline-block; margin-bottom: 15px; }
         .event-box h2 { font-size: 2.2rem; margin-bottom: 15px; font-weight: 800; }
         .event-box p { font-size: 1.3rem; font-weight: 700; color: #333; margin-bottom: 10px; }
-        
+        .event-box p.sub-text { font-size: 1.05rem; font-weight: 500; color: #555; }
+
+        /* 굿즈 (이미지 태그용으로 스타일 수정) */
+        .goods-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; text-align: center; }
+        .goods-item { background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.2); }
+        .goods-img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 20px; display: block; background: #eee; }
+        .goods-item h4 { font-size: 1.3rem; color: var(--accent-color); }
+
+        /* 브랜드 파워 (나바코리아) */
         .brand-power { padding: 40px 0 100px 0; }
         .sponsor-flex { display: flex; align-items: center; gap: 40px; background: rgba(255,255,255,0.05); padding: 50px; border-radius: 20px; }
         .sponsor-text { flex: 1; }
         .sponsor-text .badge { border: 1px solid var(--accent-color); color: var(--accent-color); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; margin-bottom: 15px; display: inline-block; }
         .sponsor-text h3 { font-size: 2rem; margin-bottom: 20px; line-height: 1.4; }
-        
+        .sponsor-text p { font-size: 1.1rem; color: #ddd; margin-bottom: 10px; }
+        .sponsor-img { flex: 1; height: 300px; border-radius: 12px; object-fit: cover; display: block; background: #ccc; }
+
+        /* 가맹 혜택 및 수익 구조 */
         .support-system { background-color: var(--primary-color); color: var(--white); }
         .support-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 900px; margin: 0 auto; }
         .support-item { background: rgba(255,255,255,0.1); padding: 30px; border-radius: 8px; border-left: 4px solid var(--accent-color); }
@@ -112,30 +129,19 @@
         .bottom-cta h2 { font-size: 2.5rem; margin-bottom: 30px; }
         footer { background: var(--primary-color); color: #aaa; text-align: center; padding: 40px 20px; font-size: 0.9rem; }
 
-        /* 🌟 상담 신청 팝업(모달) 스타일 🌟 */
-        .modal-overlay {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.7); z-index: 9999;
-            align-items: center; justify-content: center;
-        }
-        .modal-content {
-            background-color: var(--white); color: var(--text-dark); width: 90%; max-width: 450px;
-            padding: 40px 30px; border-radius: 15px; position: relative; box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-            animation: modalFadeIn 0.3s ease-out;
-        }
+        /* 상담 신청 팝업(모달) */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); z-index: 9999; align-items: center; justify-content: center; }
+        .modal-content { background-color: var(--white); color: var(--text-dark); width: 90%; max-width: 450px; padding: 40px 30px; border-radius: 15px; position: relative; box-shadow: 0 15px 30px rgba(0,0,0,0.2); animation: modalFadeIn 0.3s ease-out; }
         @keyframes modalFadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         
         .modal-close-btn { position: absolute; top: 20px; right: 25px; font-size: 2rem; cursor: pointer; color: #999; line-height: 1; transition: color 0.2s; }
         .modal-close-btn:hover { color: #333; }
-        
         .modal-content h2 { font-size: 1.8rem; font-weight: 800; color: var(--primary-color); margin-bottom: 10px; text-align: center; }
         .modal-content p { text-align: center; color: #666; margin-bottom: 30px; font-size: 0.95rem; }
-        
         .form-group { margin-bottom: 20px; text-align: left; }
         .form-group label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 0.95rem; color: #444; }
         .form-group input { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; transition: border 0.3s; }
         .form-group input:focus { outline: none; border-color: var(--bg-color); }
-        
         .submit-btn { width: 100%; background-color: var(--bg-color); color: #fff; border: none; padding: 18px; font-size: 1.1rem; font-weight: bold; border-radius: 8px; cursor: pointer; transition: background 0.3s; margin-top: 10px; }
         .submit-btn:hover { background-color: #003d7a; }
 
@@ -146,7 +152,7 @@
             .review-left { width: 100%; text-align: center; margin-bottom: 20px; }
             .review-handwriting { margin: 0; transform: none; display: inline-block; margin-right: 10px; }
             .review-left h2 { display: inline-block; font-size: 2.5rem; }
-            .review-watermark { display: none; }
+            .review-watermark-img { display: none; }
             .review-grid { grid-template-columns: 1fr; gap: 40px; }
         }
 
@@ -158,48 +164,86 @@
             .rev-text { text-align: left !important; }
             .rev-card.alt .rev-id { text-align: left; margin-right: 0; margin-left: 60px; }
             .rev-card.alt .rev-num { right: auto; left: 30px; }
+            .review-bottom-contact { margin-top: 50px; }
+            .review-bottom-contact .phone-number { font-size: 1.5rem; }
+            .review-bottom-contact .phone-number span { font-size: 2.2rem; margin-left: 10px; }
             .sponsor-flex { flex-direction: column; padding: 30px 20px; }
             .support-list { grid-template-columns: 1fr; }
             .cta-btn { display: block; width: 100%; padding: 18px 0; font-size: 1.1rem; }
+            .goods-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 상단 헤더 -->
+    <!-- 0. 상단 헤더 -->
     <header class="top-nav">
-        <a href="#" class="header-logo">JIGU COFFEE</a>
+        <!-- 💡 상단 로고 이미지 -->
+        <a href="#" class="header-logo">
+            <img src="img/logo.png" alt="지구커피 로고">
+        </a>
         <div class="header-util">
-            <!-- 🌟 모든 상담 버튼에 'open-modal-btn' 클래스를 추가하여 팝업을 엽니다 -->
             <button class="btn-franchise open-modal-btn">창업 상담받기</button>
         </div>
     </header>
 
-    <!-- 메인 비주얼 배너 -->
+    <!-- 1. 메인 비주얼 배너 (Swiper.js) -->
     <section class="main-visual-banner swiper mySwiper">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80" alt="프로모션 1"></div>
-            <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80" alt="프로모션 2"></div>
+            <!-- 💡 메인 프로모션 배너 이미지들 -->
+            <div class="swiper-slide"><img src="img/banner1.jpg" alt="프로모션 1"></div>
+            <div class="swiper-slide"><img src="img/banner2.jpg" alt="프로모션 2"></div>
         </div>
         <div class="swiper-pagination"></div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
     </section>
 
-    <!-- 브랜드 스토리 -->
+    <!-- 2. 브랜드 스토리 -->
     <section class="brand-story">
         <div class="container">
             <div class="story-grid">
                 <div class="story-content bounce-element">
                     <h3>파푸아뉴기니 청정 자연을<br>한 잔에 담다</h3>
-                    <p>파푸아뉴기니 직수입 원두를 사용하며, <strong>자체 로스팅 시스템</strong>을 통해 매일 마셔도 질리지 않는 부드럽고 깔끔한 프리미엄 데일리 커피를 완성했습니다.</p>
+                    <p>지구커피의 시작은 해발 1,500m 이상의 파푸아뉴기니 고산지대에서 출발합니다.</p>
+                    <p>비옥한 화산재 토양과 천혜의 기후가 키워낸 최상급 생두만을 엄선하여 직수입합니다. 하지만 지구커피는 단순히 좋은 원두를 가져오는 것에 그치지 않습니다.</p>
+                    <p>원두 고유의 은은한 단맛과 부드러운 밸런스를 극대화하기 위해 <strong>지구커피만의 독자적인 자체 로스팅 시스템</strong>을 거칩니다.</p>
+                    <br>
+                    <p style="font-size: 1.25rem; font-weight: 700; color: var(--accent-color); margin-bottom: 5px;">"매일 마셔도 편안하고 깊은 맛"</p>
+                    <p>타협 없는 고집으로 완성한 프리미엄 데일리 커피, 이것이 지구커피가 고객들에게 오래도록 사랑받는 진짜 이유입니다.</p>
                 </div>
-                <div class="story-image bounce-element delay-2"></div>
+                <!-- 💡 스토리 영역 생두 사진 -->
+                <div class="bounce-element delay-2">
+                    <img src="img/story_greenbean.jpg" class="story-image" alt="파푸아뉴기니 생두">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 매거진형 배달 리뷰 섹션 -->
+    <!-- 3. 지구커피 굿즈 섹션 -->
+    <section class="goods">
+        <div class="container">
+            <h2 class="section-title">소장하고 싶은 브랜드, 지구커피 굿즈</h2>
+            <p class="section-subtitle">고객의 일상에 스며드는 감각적인 MD 상품들</p>
+            <div class="goods-grid">
+                <div class="goods-item bounce-element delay-1">
+                    <!-- 💡 굿즈 사진들 -->
+                    <img src="img/goods_keyring.jpg" class="goods-img" alt="지구커피 키링">
+                    <h4>지구커피 키링</h4>
+                </div>
+                <div class="goods-item bounce-element delay-2">
+                    <img src="img/goods_tumbler.jpg" class="goods-img" alt="리유저블 텀블러">
+                    <h4>리유저블 텀블러</h4>
+                </div>
+                <div class="goods-item bounce-element delay-3">
+                    <img src="img/goods_md.jpg" class="goods-img" alt="오리지널 MD">
+                    <h4>오리지널 MD</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 매거진형 배달 리뷰 섹션 -->
     <section class="delivery-review-section">
         <div class="review-top-banner bounce-element">
             독보적인 배달 서비스 시장 경쟁력! 지구커피에서는 배달 특화 교육시스템과 다양한 노하우로 배달 매출 상승을 이끌어 내고 있습니다.
@@ -209,7 +253,8 @@
             <div class="review-left bounce-element">
                 <div class="review-handwriting">리얼한 배달!!</div>
                 <h2>REVIEW</h2>
-                <div class="review-watermark">JIGU</div>
+                <!-- 💡 리뷰 배경 워터마크 로고 -->
+                <img src="img/watermark_logo.png" class="review-watermark-img" alt="워터마크 로고">
             </div>
 
             <div class="review-grid">
@@ -226,7 +271,8 @@
                             민초프라페도 짱 시원하고 맛있어요♥♥ 민초파들 어서 드셔보세용<br>
                             빠른 배달 감사합니다!!
                         </div>
-                        <img src="https://via.placeholder.com/150/ddd/aaa?text=사진" class="rev-img" alt="리뷰 1">
+                        <!-- 💡 배달 리뷰 캡처 사진 1 -->
+                        <img src="img/review1.jpg" class="rev-img" alt="리뷰 1">
                     </div>
                 </div>
 
@@ -243,7 +289,8 @@
                             배달도 빨랐고 꼼꼼히 포장해주셔서 음료도 흐르지 않고 넘 잘왔어요~<br>
                             감사합니다!
                         </div>
-                        <img src="https://via.placeholder.com/150/ddd/aaa?text=사진" class="rev-img" alt="리뷰 2">
+                        <!-- 💡 배달 리뷰 캡처 사진 2 -->
+                        <img src="img/review2.jpg" class="rev-img" alt="리뷰 2">
                     </div>
                 </div>
 
@@ -260,7 +307,8 @@
                             <span class="hl">폭탄 카스테라는 이름처럼 진짜 생크림 가득 들어있고</span><br>
                             <span class="hl">마카롱도 말 할 필요 없이 너무 맛있습니다~</span> 지구커피 사랑합니다!!!
                         </div>
-                        <img src="https://via.placeholder.com/150/ddd/aaa?text=사진" class="rev-img" alt="리뷰 3">
+                        <!-- 💡 배달 리뷰 캡처 사진 3 -->
+                        <img src="img/review3.jpg" class="rev-img" alt="리뷰 3">
                     </div>
                 </div>
 
@@ -277,19 +325,20 @@
                             <span class="hl">제 최애 리치캐모마일이랑 바닐라크림콜드브루인데</span><br>
                             딥카페라떼 숙성우유도 추가추가 찜입니당!!!!!!!!!!!!!!!!!!!!
                         </div>
-                        <img src="https://via.placeholder.com/150/ddd/aaa?text=사진" class="rev-img" alt="리뷰 4">
+                        <!-- 💡 배달 리뷰 캡처 사진 4 -->
+                        <img src="img/review4.jpg" class="rev-img" alt="리뷰 4">
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- 리뷰 하단 가맹문의 버튼 -->
-        <div class="review-bottom-btn bounce-element delay-2">
-            <button class="cta-btn open-modal-btn">가맹문의 바로가기</button>
+        <div class="review-bottom-contact bounce-element delay-2">
+            <p>상세한 배달 매출 노하우가 궁금하시다면?</p>
+            <div class="phone-number">가맹문의 <span>1588-0000</span></div>
         </div>
     </section>
 
-    <!-- 금한돈 이벤트 -->
+    <!-- 5. 금한돈 이벤트 -->
     <section class="event-banner">
         <div class="container">
             <div class="event-box bounce-element">
@@ -301,7 +350,7 @@
         </div>
     </section>
 
-    <!-- 브랜드 파워 (나바코리아) -->
+    <!-- 6. 브랜드 파워 (나바코리아) -->
     <section class="brand-power">
         <div class="container">
             <div class="sponsor-flex bounce-element">
@@ -311,12 +360,13 @@
                     <p>지구커피는 대한민국 최고의 피트니스 대회 나바코리아와 함께했습니다.</p>
                     <p>수많은 참가자와 관람객들에게 에너지를 채워주는 프리미엄 커피를 제공하며, 브랜드의 높은 가치와 활력을 증명하고 있습니다.</p>
                 </div>
-                <div class="sponsor-img">나바코리아 커피차 사진</div>
+                <!-- 💡 나바코리아 커피차 사진 -->
+                <img src="img/nabba_truck.jpg" class="sponsor-img" alt="나바코리아 커피차">
             </div>
         </div>
     </section>
 
-    <!-- 가맹 혜택 및 수익 구조 -->
+    <!-- 7. 가맹 혜택 및 수익 구조 -->
     <section class="support-system">
         <div class="container">
             <h2 class="section-title">오픈 전부터 후까지, 든든한 파트너십</h2>
@@ -357,14 +407,12 @@
         </div>
     </footer>
 
-    <!-- 🌟 상담 신청 모달 팝업 HTML 🌟 -->
+    <!-- 상담 신청 모달 -->
     <div id="consultModal" class="modal-overlay">
         <div class="modal-content">
             <span class="modal-close-btn">&times;</span>
             <h2>창업 상담 신청</h2>
             <p>정보를 남겨주시면 빠르게 연락드리겠습니다.</p>
-            
-            <!-- 아래 form action에 생성한 Google Apps Script URL을 넣어야 합니다 -->
             <form id="consultForm" method="POST" action="YOUR_GOOGLE_SCRIPT_URL_HERE">
                 <div class="form-group">
                     <label for="name">이름</label>
@@ -387,7 +435,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // 1. Swiper 슬라이드
+            // Swiper
             new Swiper(".mySwiper", {
                 loop: true,
                 autoplay: { delay: 3500, disableOnInteraction: false },
@@ -395,34 +443,24 @@
                 navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
             });
 
-            // 2. 스크롤 애니메이션
+            // 스크롤 옵저버
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('show'); } });
             }, { threshold: 0.1 }); 
             document.querySelectorAll('.bounce-element').forEach(el => observer.observe(el));
 
-            // 3. 모달 팝업 및 구글 시트 폼 전송 로직
+            // 모달 및 폼
             const modal = document.getElementById("consultModal");
             const openBtns = document.querySelectorAll(".open-modal-btn");
             const closeBtn = document.querySelector(".modal-close-btn");
             const form = document.getElementById("consultForm");
 
-            // 버튼 클릭 시 팝업 열기
-            openBtns.forEach(btn => {
-                btn.addEventListener("click", () => {
-                    modal.style.display = "flex";
-                });
-            });
-
-            // 닫기 버튼 및 배경 클릭 시 팝업 닫기
+            openBtns.forEach(btn => btn.addEventListener("click", () => modal.style.display = "flex"));
             closeBtn.addEventListener("click", () => modal.style.display = "none");
-            window.addEventListener("click", (e) => {
-                if (e.target === modal) modal.style.display = "none";
-            });
+            window.addEventListener("click", (e) => { if (e.target === modal) modal.style.display = "none"; });
 
-            // 폼 제출 (AJAX 백그라운드 전송)
             form.addEventListener("submit", function(e) {
-                e.preventDefault(); // 페이지 새로고침 방지
+                e.preventDefault();
                 const submitBtn = form.querySelector('.submit-btn');
                 const originalText = submitBtn.innerText;
                 submitBtn.innerText = "전송 중...";
@@ -431,7 +469,6 @@
                 const formData = new FormData(form);
                 const actionUrl = form.getAttribute("action");
 
-                // 구글 시트 연동 전, URL이 없으면 에러 알림 방지
                 if(actionUrl === "YOUR_GOOGLE_SCRIPT_URL_HERE") {
                     alert("구글 스크립트 URL을 연동해주세요.");
                     submitBtn.innerText = originalText;
@@ -439,18 +476,13 @@
                     return;
                 }
 
-                fetch(actionUrl, {
-                    method: 'POST',
-                    body: formData
-                })
+                fetch(actionUrl, { method: 'POST', body: formData })
                 .then(response => {
                     alert("상담 신청이 완료되었습니다. 빠르게 연락드리겠습니다!");
                     form.reset();
                     modal.style.display = "none";
                 })
-                .catch(error => {
-                    alert("전송에 실패했습니다. 다시 시도해주세요.");
-                })
+                .catch(error => alert("전송에 실패했습니다. 잠시 후 다시 시도해주세요."))
                 .finally(() => {
                     submitBtn.innerText = originalText;
                     submitBtn.disabled = false;
