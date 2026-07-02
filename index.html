@@ -7,9 +7,6 @@
     
     <!-- 프리텐다드 웹 폰트 로드 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-    
-    <!-- Swiper.js CSS 로드 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
         :root {
@@ -51,28 +48,15 @@
         .btn-franchise { background-color: #0051A1; color: #fff; padding: 10px 25px; border-radius: 50px; font-weight: bold; font-size: 1rem; border: none; cursor: pointer; transition: background 0.3s; }
         .btn-franchise:hover { background-color: #003d7a; }
 
-        /* 🌟 2. 메인 슬라이드 배너 (시원하게 넓어진 높이 적용) 🌟 */
-        .main-visual-banner { width: 100%; position: relative; background-color: #EBF4FA; }
-        .main-visual-banner .swiper-slide img { 
-            width: 100%; 
-            height: 75vh; /* 화면 세로의 75% 차지하여 시원한 개방감 제공 */
-            max-height: 800px; /* 너무 과도하게 커지는 것 방지 */
-            min-height: 400px; /* 모바일에서 너무 좁아지는 것 방지 */
-            display: block; 
-            object-fit: cover; 
-            object-position: center; 
-        }
-        .swiper-button-next, .swiper-button-prev { color: var(--white); text-shadow: 0 2px 5px rgba(0,0,0,0.3); }
-        .swiper-pagination-bullet-active { background: var(--accent-color); }
-
-        /* 3. 브랜드 스토리 */
+        /* 2. 브랜드 스토리 (배너 삭제 후 첫 섹션) */
+        .brand-story { padding-top: 120px; } /* 헤더 바로 아래에 오므로 상단 여백을 조금 더 줍니다 */
         .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-        .story-content h3 { font-size: 2rem; margin-bottom: 20px; color: var(--white); }
+        .story-content h3 { font-size: 2.5rem; margin-bottom: 20px; color: var(--white); line-height: 1.3; }
         .story-content p { font-size: 1.1rem; margin-bottom: 15px; color: var(--white); }
         .story-content strong { color: var(--accent-color); }
-        .story-image { width: 100%; height: 400px; border-radius: 12px; object-fit: cover; display: block; }
+        .story-image { width: 100%; height: 450px; border-radius: 12px; object-fit: cover; display: block; }
 
-        /* 4. 리뷰 섹션 */
+        /* 3. 리뷰 섹션 */
         .delivery-review-section { background-color: #F4F4F4; color: var(--text-dark); padding: 0 0 100px 0; overflow: hidden; }
         .review-top-banner { background-color: var(--brand-orange); color: #fff; text-align: center; padding: 20px; font-size: 1.3rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 80px; }
         .review-layout { max-width: 1400px; margin: 0 auto; padding: 0 30px; display: flex; gap: 50px; }
@@ -166,7 +150,8 @@
 
         @media (max-width: 768px) {
             section { padding: 60px 0; }
-            .main-visual-banner .swiper-slide img { height: 60vh; } /* 모바일에서는 배너 높이를 60%로 조정해 스크롤 부담 완화 */
+            .brand-story { padding-top: 60px; }
+            .story-content h3 { font-size: 2rem; }
             .story-grid { grid-template-columns: 1fr; gap: 30px; }
             .rev-body { flex-direction: column !important; }
             .rev-img { width: 100%; height: 200px; }
@@ -187,7 +172,7 @@
 
     <!-- 0. 상단 헤더 -->
     <header class="top-nav">
-        <!-- 💡 상단 로고 이미지 -->
+        <!-- 상단 로고 이미지 -->
         <a href="#" class="header-logo">
             <img src="img/logo.png" alt="지구커피 로고">
         </a>
@@ -196,19 +181,7 @@
         </div>
     </header>
 
-    <!-- 1. 메인 비주얼 배너 (Swiper.js) -->
-    <section class="main-visual-banner swiper mySwiper">
-        <div class="swiper-wrapper">
-            <!-- 💡 메인 프로모션 배너 이미지들 -->
-            <div class="swiper-slide"><img src="img/banner1.jpg" alt="프로모션 1"></div>
-            <div class="swiper-slide"><img src="img/banner2.jpg" alt="프로모션 2"></div>
-        </div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-    </section>
-
-    <!-- 2. 브랜드 스토리 -->
+    <!-- 1. 브랜드 스토리 (메인 배너 삭제 후 첫 번째 영역) -->
     <section class="brand-story">
         <div class="container">
             <div class="story-grid">
@@ -221,7 +194,7 @@
                     <p style="font-size: 1.25rem; font-weight: 700; color: var(--accent-color); margin-bottom: 5px;">"매일 마셔도 편안하고 깊은 맛"</p>
                     <p>타협 없는 고집으로 완성한 프리미엄 데일리 커피, 이것이 지구커피가 고객들에게 오래도록 사랑받는 진짜 이유입니다.</p>
                 </div>
-                <!-- 💡 스토리 영역 생두 사진 -->
+                <!-- 스토리 영역 생두 사진 -->
                 <div class="bounce-element delay-2">
                     <img src="img/story_greenbean.jpg" class="story-image" alt="파푸아뉴기니 생두">
                 </div>
@@ -229,14 +202,13 @@
         </div>
     </section>
 
-    <!-- 3. 지구커피 굿즈 섹션 -->
+    <!-- 2. 지구커피 굿즈 섹션 -->
     <section class="goods">
         <div class="container">
             <h2 class="section-title">소장하고 싶은 브랜드, 지구커피 굿즈</h2>
             <p class="section-subtitle">고객의 일상에 스며드는 감각적인 MD 상품들</p>
             <div class="goods-grid">
                 <div class="goods-item bounce-element delay-1">
-                    <!-- 💡 굿즈 사진들 -->
                     <img src="img/goods_keyring.jpg" class="goods-img" alt="지구커피 키링">
                     <h4>지구커피 키링</h4>
                 </div>
@@ -252,7 +224,7 @@
         </div>
     </section>
 
-    <!-- 4. 매거진형 배달 리뷰 섹션 -->
+    <!-- 3. 매거진형 배달 리뷰 섹션 -->
     <section class="delivery-review-section">
         <div class="review-top-banner bounce-element">
             독보적인 배달 서비스 시장 경쟁력! 지구커피에서는 배달 특화 교육시스템과 다양한 노하우로 배달 매출 상승을 이끌어 내고 있습니다.
@@ -262,7 +234,6 @@
             <div class="review-left bounce-element">
                 <div class="review-handwriting">리얼한 배달!!</div>
                 <h2>REVIEW</h2>
-                <!-- 💡 리뷰 배경 워터마크 로고 -->
                 <img src="img/watermark_logo.png" class="review-watermark-img" alt="워터마크 로고">
             </div>
 
@@ -280,7 +251,6 @@
                             민초프라페도 짱 시원하고 맛있어요♥♥ 민초파들 어서 드셔보세용<br>
                             빠른 배달 감사합니다!!
                         </div>
-                        <!-- 💡 배달 리뷰 캡처 사진 1 -->
                         <img src="img/review1.jpg" class="rev-img" alt="리뷰 1">
                     </div>
                 </div>
@@ -298,7 +268,6 @@
                             배달도 빨랐고 꼼꼼히 포장해주셔서 음료도 흐르지 않고 넘 잘왔어요~<br>
                             감사합니다!
                         </div>
-                        <!-- 💡 배달 리뷰 캡처 사진 2 -->
                         <img src="img/review2.jpg" class="rev-img" alt="리뷰 2">
                     </div>
                 </div>
@@ -316,7 +285,6 @@
                             <span class="hl">폭탄 카스테라는 이름처럼 진짜 생크림 가득 들어있고</span><br>
                             <span class="hl">마카롱도 말 할 필요 없이 너무 맛있습니다~</span> 지구커피 사랑합니다!!!
                         </div>
-                        <!-- 💡 배달 리뷰 캡처 사진 3 -->
                         <img src="img/review3.jpg" class="rev-img" alt="리뷰 3">
                     </div>
                 </div>
@@ -334,7 +302,6 @@
                             <span class="hl">제 최애 리치캐모마일이랑 바닐라크림콜드브루인데</span><br>
                             딥카페라떼 숙성우유도 추가추가 찜입니당!!!!!!!!!!!!!!!!!!!!
                         </div>
-                        <!-- 💡 배달 리뷰 캡처 사진 4 -->
                         <img src="img/review4.jpg" class="rev-img" alt="리뷰 4">
                     </div>
                 </div>
@@ -347,7 +314,7 @@
         </div>
     </section>
 
-    <!-- 5. 금한돈 이벤트 -->
+    <!-- 4. 금한돈 이벤트 -->
     <section class="event-banner">
         <div class="container">
             <div class="event-box bounce-element">
@@ -359,7 +326,7 @@
         </div>
     </section>
 
-    <!-- 6. 브랜드 파워 (나바코리아) -->
+    <!-- 5. 브랜드 파워 (나바코리아) -->
     <section class="brand-power">
         <div class="container">
             <div class="sponsor-flex bounce-element">
@@ -369,13 +336,12 @@
                     <p>지구커피는 대한민국 최고의 피트니스 대회 나바코리아와 함께했습니다.</p>
                     <p>수많은 참가자와 관람객들에게 에너지를 채워주는 프리미엄 커피를 제공하며, 브랜드의 높은 가치와 활력을 증명하고 있습니다.</p>
                 </div>
-                <!-- 💡 나바코리아 커피차 사진 -->
                 <img src="img/nabba_truck.jpg" class="sponsor-img" alt="나바코리아 커피차">
             </div>
         </div>
     </section>
 
-    <!-- 7. 가맹 혜택 및 수익 구조 -->
+    <!-- 6. 가맹 혜택 및 수익 구조 -->
     <section class="support-system">
         <div class="container">
             <h2 class="section-title">오픈 전부터 후까지, 든든한 파트너십</h2>
@@ -441,17 +407,8 @@
     </div>
 
     <!-- 스크립트 -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Swiper
-            new Swiper(".mySwiper", {
-                loop: true,
-                autoplay: { delay: 3500, disableOnInteraction: false },
-                pagination: { el: ".swiper-pagination", clickable: true },
-                navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
-            });
-
             // 스크롤 옵저버
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('show'); } });
